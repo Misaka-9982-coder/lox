@@ -49,6 +49,7 @@ class Parser {
     }
 
     private Stmt statement() {
+        if (match(IF)) return ifStatement();
         if (match(PRINT)) return printStatement();
         if (match(LEFT_BRACE)) return new Stmt.Block(block());
 
