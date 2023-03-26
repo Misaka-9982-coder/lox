@@ -35,8 +35,16 @@ class LoxTest {
 
     @Test
     void testRunFile() throws IOException {
-        String filePath = "src/test/java/lox/test.lox";
+        String filePath = "src/test/java/lox/test/test.lox";
         Lox.main(new String[]{filePath});
         assertFalse(outContent.toString().contains("Expected output"));
+    }
+
+    @Test
+    void testClouse() throws IOException {
+        String filePath = "src/test/java/lox/test/clouse.lox";
+        Lox.main(new String[]{filePath});
+        System.out.println(outContent);
+        assertTrue(outContent.toString().contains("global\nglobal"));
     }
 }
