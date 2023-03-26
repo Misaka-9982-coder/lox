@@ -20,6 +20,10 @@ class LoxInstance {
             "Undefined property '" + name.lexeme + "'.");
     }
 
+    void set(Token name, Object value) {
+        fields.put(name.lexeme, value);
+    }
+
     @Override
     public String toString() {
         return klass.name + " instance";
