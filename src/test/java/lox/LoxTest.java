@@ -47,4 +47,21 @@ class LoxTest {
         System.out.println(outContent);
         assertTrue(outContent.toString().contains("global\nglobal"));
     }
+
+    @Test
+    void testClass() throws IOException {
+        String filePath = "src/test/java/lox/test/class.lox";
+        Lox.main(new String[]{filePath});
+        System.out.println(outContent);
+        assertTrue(outContent.toString().contains("DevonshireCream"));
+    }
+
+    @Test
+    void testClass1() throws IOException {
+        String filePath = "src/test/java/lox/test/class1.lox";
+        Lox.main(new String[]{filePath});
+        System.out.println(outContent);
+        assertTrue(outContent.toString().contains("Bagel instance"));
+
+    }
 }
