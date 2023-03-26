@@ -71,6 +71,14 @@ class LoxTest {
         Lox.main(new String[]{filePath});
         System.out.println(outContent);
         assertTrue(outContent.toString().contains("Crunch crunch crunch!"));
+    }
+
+    @Test
+    void testReturn() throws IOException {
+        String filePath = "src/test/java/lox/test/return.lox";
+        Lox.main(new String[]{filePath});
+        System.out.println(outContent);
+        assertFalse(outContent.toString().contains("Expected output"));
 
     }
 }
