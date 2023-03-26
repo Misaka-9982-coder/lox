@@ -64,4 +64,13 @@ class LoxTest {
         assertTrue(outContent.toString().contains("Bagel instance"));
 
     }
+
+    @Test
+    void testMethod() throws IOException {
+        String filePath = "src/test/java/lox/test/method.lox";
+        Lox.main(new String[]{filePath});
+        System.out.println(outContent);
+        assertTrue(outContent.toString().contains("Crunch crunch crunch!"));
+
+    }
 }
