@@ -1,7 +1,5 @@
 package lox;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
