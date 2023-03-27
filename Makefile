@@ -29,7 +29,7 @@ test_clox: debug $(TEST_SNAPSHOT)
 	@ dart $(TEST_SNAPSHOT) clox
 
 # Run the tests for the final version of jlox.
-test_jlox: jlox $(TEST_SNAPSHOT)
+test_jlox: debug jlox $(TEST_SNAPSHOT)
 	@ dart $(TEST_SNAPSHOT) jlox
 
 $(TEST_SNAPSHOT): $(TOOL_SOURCES)
