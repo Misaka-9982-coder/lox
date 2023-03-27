@@ -43,12 +43,12 @@ debug:
 
 # Compile the C interpreter.
 clox:
-	@ $(MAKE) -f util/c.make NAME=clox MODE=release SOURCE_DIR=c
+	@ $(MAKE) -f util/c.make NAME=clox MODE=release SOURCE_DIR=clox
 	@ cp build/clox clox # For convenience, copy the interpreter to the top level.
 
 # Compile the C interpreter as ANSI standard C++.
 cpplox:
-	@ $(MAKE) -f util/c.make NAME=cpplox MODE=debug CPP=true SOURCE_DIR=c
+	@ $(MAKE) -f util/c.make NAME=cpplox MODE=debug CPP=true SOURCE_DIR=clox
 
 # Compile and run the AST generator.
 generate_ast:

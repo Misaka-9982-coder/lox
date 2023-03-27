@@ -37,3 +37,12 @@ jobs:
 
     - name: Test jlox
       run: make test_jlox
+
+    - name: Make clox
+      run: make clox
+
+    - name: Test clox
+      run: make test_clox
+
+    - name: Test all
+      run: make test
