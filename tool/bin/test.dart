@@ -436,7 +436,7 @@ void _defineTestSuites() {
   }
 
   void java(String name, Map<String, String> tests) {
-    var dir = name == "jlox" ? "build/java" : "build/gen/$name";
+    var dir = name == "jlox" ? "build/jlox/src/main/java" : "build/gen/$name";
     _allSuites[name] = Suite(name, "java", "java",
         ["-cp", dir, "com.craftinginterpreters.lox.Lox"], tests);
     _javaSuites.add(name);

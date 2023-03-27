@@ -3,7 +3,7 @@ TOOL_SOURCES := tool/pubspec.lock $(shell find tool -name '*.dart')
 BUILD_SNAPSHOT := $(BUILD_DIR)/build.dart.snapshot
 TEST_SNAPSHOT := $(BUILD_DIR)/test.dart.snapshot
 
-default: book clox jlox
+default: clox jlox
 
 # Run dart pub get on tool directory.
 get:
@@ -13,14 +13,6 @@ get:
 clean:
 	@ rm -rf $(BUILD_DIR)
 	@ rm -rf gen
-
-# Build the site.
-book: $(BUILD_SNAPSHOT)
-	@ dart $(BUILD_SNAPSHOT)
-
-# Run a local development server for the site that rebuilds automatically.
-serve: $(BUILD_SNAPSHOT)
-	@ dart $(BUILD_SNAPSHOT) --serve
 
 $(BUILD_SNAPSHOT): $(TOOL_SOURCES)
 	@ mkdir -p build
@@ -49,7 +41,7 @@ test_java: jlox $(TEST_SNAPSHOT)
 	@ dart $(TEST_SNAPSHOT) java
 
 # Run the tests for every chapter's version of clox and jlox.
-test_all: debug jlox compile_snippets $(TEST_SNAPSHOT)
+test_all: debug jlox $(TEST_SNAPSHOT)
 	@ dart $(TEST_SNAPSHOT) all
 
 $(TEST_SNAPSHOT): $(TOOL_SOURCES)
@@ -73,12 +65,13 @@ cpplox:
 # Compile and run the AST generator.
 generate_ast:
 	@ $(MAKE) -f util/java.make DIR=java PACKAGE=tool
+	@ javac jlox/src/main/java/com/craftinginterpreters/tool/GenerateAst.java -d build/java
 	@ java -cp build/java com.craftinginterpreters.tool.GenerateAst \
-			java/com/craftinginterpreters/lox
+			jlox/src/main/java/com/craftinginterpreters/lox
 
 # Compile the Java interpreter .java files to .class files.
 jlox: generate_ast
-	@ $(MAKE) -f util/java.make DIR=java PACKAGE=lox
+	@ $(MAKE) -f util/java.make DIR=jlox/src/main/java PACKAGE=lox
 
 run_generate_ast = @ java -cp build/gen/$(1) \
 			com.craftinginterpreters.tool.GenerateAst \
@@ -89,5 +82,5 @@ run_generate_ast = @ java -cp build/gen/$(1) \
 xml: $(TOOL_SOURCES)
 	@ dart --enable-asserts tool/bin/build_xml.dart
 
-.PHONY: book clean clox compile_snippets debug default diffs \
+.PHONY: book clean clox debug default \
 	get jlox serve test test_all test_c test_java

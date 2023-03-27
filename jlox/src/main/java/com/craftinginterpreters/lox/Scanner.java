@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.craftinginterpreters.lox.TokenType.*; // [static-import]
+import static com.craftinginterpreters.lox.TokenType.*;
 
 class Scanner {
 //> keyword-map

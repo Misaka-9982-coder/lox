@@ -3,14 +3,10 @@ package com.craftinginterpreters.lox;
 //> Statements and State import-list
 
 //> Functions import-array-list
+
 import java.util.ArrayList;
-//< Functions import-array-list
-//> Resolving and Binding import-hash-map
 import java.util.HashMap;
-//< Resolving and Binding import-hash-map
 import java.util.List;
-//< Statements and State import-list
-//> Resolving and Binding import-map
 import java.util.Map;
 //< Resolving and Binding import-map
 

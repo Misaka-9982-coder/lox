@@ -2,11 +2,9 @@
 package com.craftinginterpreters.lox;
 
 //> Statements and State parser-imports
+
 import java.util.ArrayList;
-//< Statements and State parser-imports
-//> Control Flow import-arrays
 import java.util.Arrays;
-//< Control Flow import-arrays
 import java.util.List;
 
 import static com.craftinginterpreters.lox.TokenType.*;
