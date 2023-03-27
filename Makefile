@@ -32,18 +32,6 @@ test_clox: debug $(TEST_SNAPSHOT)
 test_jlox: jlox $(TEST_SNAPSHOT)
 	@ dart $(TEST_SNAPSHOT) jlox
 
-# Run the tests for every chapter's version of clox.
-test_c: debug $(TEST_SNAPSHOT)
-	@ dart $(TEST_SNAPSHOT) c
-
-# Run the tests for every chapter's version of jlox.
-test_java: jlox $(TEST_SNAPSHOT)
-	@ dart $(TEST_SNAPSHOT) java
-
-# Run the tests for every chapter's version of clox and jlox.
-test_all: debug jlox $(TEST_SNAPSHOT)
-	@ dart $(TEST_SNAPSHOT) all
-
 $(TEST_SNAPSHOT): $(TOOL_SOURCES)
 	@ mkdir -p build
 	@ echo "Compiling Dart snapshot..."
@@ -83,4 +71,4 @@ xml: $(TOOL_SOURCES)
 	@ dart --enable-asserts tool/bin/build_xml.dart
 
 .PHONY: book clean clox debug default \
-	get jlox serve test test_all test_c test_java
+	get jlox serve test
