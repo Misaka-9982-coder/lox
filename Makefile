@@ -39,7 +39,7 @@ $(TEST_SNAPSHOT): $(TOOL_SOURCES)
 
 # Compile a debug build of clox.
 debug:
-	@ $(MAKE) -f util/c.make NAME=cloxd MODE=debug SOURCE_DIR=c
+	@ $(MAKE) -f util/c.make NAME=cloxd MODE=debug SOURCE_DIR=clox
 
 # Compile the C interpreter.
 clox:

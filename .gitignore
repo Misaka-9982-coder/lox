@@ -6,7 +6,6 @@ target/
 .sass-cache/
 /build/
 /gen/
-clox
 *.class
 exercises/chapter01_introduction/3/linked_list
 .idea/
