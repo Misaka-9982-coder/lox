@@ -146,7 +146,9 @@ class LoxTest {
                 "987\n" +
                 "1597\n" +
                 "2584\n" +
-                "4181\n";
+                "4181\n" +
+                "1\n" +
+                "2\n";
         Lox.main(new String[]{Path});
         assertEquals(expectedOutput, getOutput());
     }
