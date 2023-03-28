@@ -1,8 +1,15 @@
 package com.craftinginterpreters.lox;
 
+import java.util.List;
+
 class AstPrinter implements Expr.Visitor<String> {
     String print(Expr expr) {
         return expr.accept(this);
+    }
+
+    @Override
+    public String visitAssignExpr(Expr.Assign expr) {
+        return parenthesize2("=", expr.name.lexeme, expr.value);
     }
 
     @Override
@@ -44,6 +51,25 @@ class AstPrinter implements Expr.Visitor<String> {
         builder.append(")");
 
         return builder.toString();
+    }
+
+    private String parenthesize2(String name, Object... parts) {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("(").append(name);
+        transform(builder, parts);
+        builder.append(")");
+
+        return builder.toString();
+    }
+
+    private void transform(StringBuilder builder, Object... parts) {
+        for (Object part : parts) {
+            builder.append(" ");
+            if (part instanceof Expr) {
+                builder.append(((Expr)part).accept(this));
+            }
+        }
     }
 
     public static void main(String[] args) {
