@@ -4,10 +4,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -56,6 +56,23 @@ class LoxTest {
 
         provideInput(input);
         Lox.main(new String[]{});
+        assertEquals(expectedOutput, getOutput());
+    }
+
+    @Test
+    void testStatement() throws IOException {
+        String Path = "src/main/resources/test/stmt.lox";
+        String expectedOutput =
+                "inner a\n" +
+                "outer b\n" +
+                "global c\n" +
+                "outer a\n" +
+                "outer b\n" +
+                "global c\n" +
+                "global a\n" +
+                "global b\n" +
+                "global c\n";
+        Lox.main(new String[]{Path});
         assertEquals(expectedOutput, getOutput());
     }
 }
