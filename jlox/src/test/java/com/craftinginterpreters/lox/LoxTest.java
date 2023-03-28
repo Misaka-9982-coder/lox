@@ -75,4 +75,14 @@ class LoxTest {
         Lox.main(new String[]{Path});
         assertEquals(expectedOutput, getOutput());
     }
+
+    @Test
+    void testIfElse() throws IOException {
+        String Path = "src/main/resources/test/if-else.lox";
+        String expectedOutput =
+                "1\n" +
+                "0\n";
+        Lox.main(new String[]{Path});
+        assertEquals(expectedOutput, getOutput());
+    }
 }
