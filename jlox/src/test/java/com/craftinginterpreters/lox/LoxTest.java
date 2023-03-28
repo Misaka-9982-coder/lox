@@ -5,9 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -92,6 +89,35 @@ class LoxTest {
         String expectedOutput =
                 "hi\n" +
                 "yes\n";
+        Lox.main(new String[]{Path});
+        assertEquals(expectedOutput, getOutput());
+    }
+
+    @Test
+    void testLoop() throws IOException {
+        String Path = "src/main/resources/test/loop.lox";
+        String expectedOutput =
+                "0\n" +
+                "1\n" +
+                "1\n" +
+                "2\n" +
+                "3\n" +
+                "5\n" +
+                "8\n" +
+                "13\n" +
+                "21\n" +
+                "34\n" +
+                "55\n" +
+                "89\n" +
+                "144\n" +
+                "233\n" +
+                "377\n" +
+                "610\n" +
+                "987\n" +
+                "1597\n" +
+                "2584\n" +
+                "4181\n" +
+                "6765\n";
         Lox.main(new String[]{Path});
         assertEquals(expectedOutput, getOutput());
     }
