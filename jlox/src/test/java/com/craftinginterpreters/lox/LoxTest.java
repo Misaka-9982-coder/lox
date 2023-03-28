@@ -85,4 +85,14 @@ class LoxTest {
         Lox.main(new String[]{Path});
         assertEquals(expectedOutput, getOutput());
     }
+
+    @Test
+    void testLogic() throws IOException {
+        String Path = "src/main/resources/test/logic.lox";
+        String expectedOutput =
+                "hi\n" +
+                "yes\n";
+        Lox.main(new String[]{Path});
+        assertEquals(expectedOutput, getOutput());
+    }
 }
