@@ -152,4 +152,16 @@ class LoxTest {
         Lox.main(new String[]{Path});
         assertEquals(expectedOutput, getOutput());
     }
+
+    @Test
+    void testClass() throws IOException {
+        String Path = "src/main/resources/test/class.lox";
+        String expectedOutput =
+                "DevonshireCream\n" +
+                "Bagel instance\n" +
+                "Crunch crunch crunch!\n" +
+                "The German chocolate cake is delicious!\n";
+        Lox.main(new String[]{Path});
+        assertEquals(expectedOutput, getOutput());
+    }
 }
