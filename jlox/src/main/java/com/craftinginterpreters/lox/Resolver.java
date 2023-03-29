@@ -48,7 +48,7 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
         if (stmt.superclass != null &&
             stmt.name.lexeme.equals(stmt.superclass.name.lexeme)) {
             Lox.error(stmt.superclass.name,
-                "A class cannot inherit from itself.");
+                "A class can't inherit from itself.");
         }
 
         if (stmt.superclass != null) {
@@ -240,7 +240,7 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
         if (!scopes.isEmpty() &&
             scopes.peek().get(expr.name.lexeme) == Boolean.FALSE) {
             Lox.error(expr.name,
-                      "Cannot read local variable in its own initializer.");
+                      "Can't read local variable in its own initializer.");
         }
 
         resolveLocal(expr, expr.name);

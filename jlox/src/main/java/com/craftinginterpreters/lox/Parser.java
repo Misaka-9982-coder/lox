@@ -181,7 +181,7 @@ class Parser {
         if (!check(RIGHT_PAREN)) {
             do {
                 if (parameters.size() >= 255) {
-                    error(peek(), "Cannot have more than 255 parameters.");
+                    error(peek(), "Can't have more than 255 parameters.");
                 }
 
                 parameters.add(
@@ -314,7 +314,7 @@ class Parser {
         if (!check(RIGHT_PAREN)) {
             do {
                 if (arguments.size() >= 255) {
-                    error(peek(), "Cannot have more than 255 arguments.");
+                    error(peek(), "Can't have more than 255 arguments.");
                 }
                 arguments.add(expression());
             } while (match(COMMA));
