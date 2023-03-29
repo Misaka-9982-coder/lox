@@ -18,6 +18,8 @@
 %left NOT
 %right UMINUS
 
+%nonassoc ELSE
+
 %%
 
 program: declarations EOF ;
@@ -72,10 +74,8 @@ opt_varOrExprStmt: /* empty */
 opt_expression: /* empty */
               | expression ;
 
-ifStmt: IF '(' expression ')' statement opt_else ;
-
-opt_else: /* empty */
-        | ELSE statement ;
+ifStmt: IF '(' expression ')' statement %prec ELSE
+      | IF '(' expression ')' statement ELSE statement ;
 
 printStmt: PRINT expression ';' ;
 
@@ -90,11 +90,9 @@ arguments: expression
 
 expression: assignment ;
 
-assignment: opt_callDot IDENTIFIER ASSIGN assignment
+assignment: IDENTIFIER ASSIGN assignment
+          | call '.' IDENTIFIER ASSIGN assignment
           | logic_or ;
-
-opt_callDot: /* empty */
-           | call '.' ;
 
 logic_or: logic_and
         | logic_or OR logic_and ;

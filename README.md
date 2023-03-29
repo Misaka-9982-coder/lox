@@ -86,7 +86,6 @@ referenced by:
 * declaration
 * forStmt
 * ifStmt
-* opt_else
 * whileStmt
 
 **exprStmt:**
@@ -130,14 +129,6 @@ referenced by:
 referenced by:
 
 * statement
-
-**opt_else:**
-
-![opt_else](diagram/opt_else.svg)
-
-referenced by:
-
-* ifStmt
 
 **printStmt:**
 
@@ -186,14 +177,6 @@ referenced by:
 * primary
 * printStmt
 * whileStmt
-
-**opt_callDot:**
-
-![opt_callDot](diagram/opt_callDot.svg)
-
-referenced by:
-
-* expression
 
 **logic_and:**
 
@@ -249,7 +232,7 @@ referenced by:
 
 referenced by:
 
-* opt_callDot
+* expression
 * unary
 
 **opt_arguments:**
