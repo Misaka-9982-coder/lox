@@ -46,6 +46,11 @@ clox:
 	@ $(MAKE) -f util/c.make NAME=clox MODE=release SOURCE_DIR=clox
 	@ cp build/clox clox # For convenience, copy the interpreter to the top level.
 
+# Compile the C interpreter.
+c:
+	@ $(MAKE) -f util/c.make NAME=c MODE=release SOURCE_DIR=c
+	@ cp build/c c # For convenience, copy the interpreter to the top level.
+
 # Compile the C interpreter as ANSI standard C++.
 cpplox:
 	@ $(MAKE) -f util/c.make NAME=cpplox MODE=debug CPP=true SOURCE_DIR=clox
@@ -70,5 +75,5 @@ run_generate_ast = @ java -cp build/gen/$(1) \
 xml: $(TOOL_SOURCES)
 	@ dart --enable-asserts tool/bin/build_xml.dart
 
-.PHONY: book clean clox debug default \
+.PHONY: book clean clox c debug default \
 	get jlox serve test
