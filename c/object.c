@@ -20,7 +20,7 @@ static Obj* allocateObject(size_t size, ObjType type) {
 }
 
 static ObjString* allocateString(char* chars, int length) {
-    ObjString* string = ALLOCATE(ObjString, OBJ_STRING);
+    ObjString* string = ALLOCATE_OBJ(ObjString, OBJ_STRING);
     string->length = length;
     string->chars = chars;
     return string;
