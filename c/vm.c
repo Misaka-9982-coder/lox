@@ -33,6 +33,7 @@ void initVM() {
 }
 
 void freeVM() {
+    freeTable(&vm.strings);
     freeObjects();
 }
 
